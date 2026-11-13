@@ -9,6 +9,7 @@ import app
 # A fresh public checkout has no private Cloudflare registry.
 if not app.PORTAL_SNAPSHOT.get("servers"):
     from pathlib import Path
+
     app.PORTAL_SNAPSHOT = json.loads(
         (Path(__file__).parent / "tests" / "registry_unit_fixture.json").read_text(encoding="utf-8")
     )
