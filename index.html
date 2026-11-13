@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloudflare MCP Explorer</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/pretty.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div><div class="eyebrow">PRIVATE MCP TOOL EXPLORER</div><h1>Cloudflare MCP Explorer</h1><p class="sub">Wszystkie serwery MCP z konta Cloudflare · przypisania do portali i dostępne narzędzia</p></div>
+    <div class="header-actions"><span id="status" aria-live="polite">Łączenie…</span><button id="refresh">Sprawdź dostępność</button></div>
+  </header>
+  <main class="layout">
+    <section class="panel panel-list" aria-label="Serwery MCP">
+      <h2>Serwery <span class="count" id="serverCount">0</span></h2>
+      <input type="search" id="serverSearch" aria-label="Filtr serwerów" placeholder="Filtruj serwery">
+      <nav id="servers" aria-label="Lista serwerów"></nav>
+    </section>
+    <section class="panel panel-list" aria-label="Narzędzia MCP">
+      <h2>Narzędzia <span class="count" id="toolCount">0</span></h2>
+      <input type="search" id="toolSearch" aria-label="Filtr narzędzi" placeholder="Szukaj po nazwie lub opisie">
+      <nav id="tools" aria-label="Lista narzędzi"></nav>
+    </section>
+    <section class="panel panel-detail" aria-label="Wykonanie narzędzia">
+      <div id="empty">Wybierz serwer, a następnie narzędzie.</div>
+      <div id="detail" hidden>
+        <div class="tool-header"><div class="eyebrow" id="selectedServer"></div><h2 id="selectedTool"></h2><p id="description"></p></div>
+        <div class="schema"><details><summary>Schemat argumentów narzędzia</summary><pre id="schema"></pre></details></div>
+        <form id="toolForm" novalidate>
+          <div id="queryGroup"><label for="query" id="queryLabel">Query</label><textarea id="query" rows="4" spellcheck="false" placeholder="Treść zapytania"></textarea><p class="hint" id="queryHint"></p></div>
+          <div class="parameters-title">Parametry narzędzia <span class="hint">Wybierz dostępne opcje. Pola oznaczone * są wymagane.</span></div>
+          <div id="parameters" aria-label="Parametry narzędzia"></div>
+          <details class="arguments-preview"><summary>Podgląd argumentów JSON (tylko do odczytu)</summary><pre id="arguments">{}</pre></details>
+          <div class="actions"><button type="submit" class="primary" id="run">Wykonaj narzędzie</button><span class="hint" id="risk"></span></div>
+        </form>
+        <div class="results"><div class="result-header"><h3>Odpowiedź</h3><span id="runtime" aria-live="polite"></span><button id="resultMode" type="button" class="result-mode" aria-pressed="false" aria-label="Tryb odpowiedzi">Widok: RAW JSON</button><button id="copy" type="button">Kopiuj JSON</button></div><pre id="result" tabindex="0">Brak wywołania.</pre><div id="prettyResult" class="pretty-result" role="region" aria-label="Sformatowana odpowiedź" tabindex="0" hidden>Brak wywołania.</div></div>
+      </div>
+    </section>
+  </main>
+  <footer>Poświadczenia usługi pozostają na serwerze. Narzędzia mogą zmieniać dane — sprawdź argumenty przed wykonaniem.</footer>
+</body>
+</html>

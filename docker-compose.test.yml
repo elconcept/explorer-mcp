@@ -1,0 +1,34 @@
+services:
+  e2e-mcp:
+    image: python:3.12-alpine
+    command: ["python", "-B", "/app/tests/e2e_server.py"]
+    environment:
+      MCP_URL: https://lex.xlap.pl/mcp
+      CF_ACCESS_CLIENT_ID: E2E_TEST_ONLY
+      CF_ACCESS_CLIENT_SECRET: E2E_TEST_ONLY
+      APP_ORIGIN: https://explorer.xlap.pl
+      E2E_ORIGIN: http://e2e-mcp:8090
+      PORT: "8090"
+    volumes:
+      - .:/app:ro
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    networks: [test]
+
+  playwright:
+    image: mcr.microsoft.com/playwright:v1.65.0-noble
+    working_dir: /app
+    command: ["bash", "-lc", "npm ci --no-audit --no-fund && npx playwright test --reporter=list"]
+    environment:
+      E2E_BASE_URL: http://e2e-mcp:8090
+      CI: "1"
+    depends_on: [e2e-mcp]
+    volumes:
+      - .:/app
+    shm_size: 512mb
+    networks: [test]
+
+networks:
+  test:
+    driver: bridge

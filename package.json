@@ -1,0 +1,12 @@
+{
+  "name": "explorer-mcp-e2e",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:ci": "playwright test --reporter=line"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0"
+  }
+}

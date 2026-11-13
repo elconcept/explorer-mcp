@@ -1,0 +1,26 @@
+.env
+.env.*
+*.secret
+*.key
+__pycache__/
+*.py[cod]
+.DS_Store
+*.log
+node_modules/
+test-results/
+playwright-report/
+.ruff_cache/
+*.pyc
+coverage/
+.cf-service-token
+
+# Local runtime material, credentials, and historical snapshots - NEVER commit
+cloudflare_registry.json
+portal_catalog.json
+*.bak-*
+*.pem
+*.p12
+*.pfx
+*.sqlite
+*.db
+*.env.local

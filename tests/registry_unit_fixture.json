@@ -1,0 +1,220 @@
+{
+  "capturedAt": "unit-test-fixture",
+  "source": "Synthetic, never production",
+  "portals": [
+    {
+      "id": "lex-prawo",
+      "name": "lex-prawo"
+    },
+    {
+      "id": "saos-chatgpt-pilot",
+      "name": "ai-admin-tools"
+    }
+  ],
+  "servers": [
+    {
+      "id": "synology",
+      "name": "synology",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "saos",
+      "name": "saos",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [
+        {
+          "name": "search",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "portals": []
+    },
+    {
+      "id": "portainer",
+      "name": "portainer",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "nsa",
+      "name": "nsa",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "mcp-ustawy",
+      "name": "mcp-ustawy",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [
+        {
+          "name": "przepis",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "portals": [
+        {
+          "id": "lex-prawo",
+          "name": "lex-prawo"
+        }
+      ]
+    },
+    {
+      "id": "mcp-uodo",
+      "name": "mcp-uodo",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "mcp-repertorium",
+      "name": "mcp-repertorium",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "mcp-prawmi",
+      "name": "mcp-prawmi",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [
+        {
+          "name": "search_rulings",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "verify_ruling",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "portals": [
+        {
+          "id": "lex-prawo",
+          "name": "lex-prawo"
+        }
+      ]
+    },
+    {
+      "id": "mcp-eureka",
+      "name": "mcp-eureka",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "mcp-eu-compliance",
+      "name": "mcp-eu-compliance",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "mcp-cloudflare",
+      "name": "mcp-cloudflare",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "krs",
+      "name": "krs",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "unauthenticated",
+      "tools": [
+        {
+          "name": "get_entity",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "portals": [
+        {
+          "id": "lex-prawo",
+          "name": "lex-prawo"
+        }
+      ]
+    },
+    {
+      "id": "eu-sparql",
+      "name": "eu-sparql",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "desktop-commander",
+      "name": "desktop-commander",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    },
+    {
+      "id": "basic-memory",
+      "name": "basic-memory",
+      "description": "Synthetic unit-test fixture",
+      "status": "ready",
+      "hostname": "https://example.invalid/mcp",
+      "authType": "oauth",
+      "tools": [],
+      "portals": []
+    }
+  ]
+}

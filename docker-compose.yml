@@ -1,0 +1,35 @@
+services:
+  explorer:
+    image: python:3.12-alpine
+    container_name: lex-mcp-explorer
+    restart: unless-stopped
+    command: ["python", "-B", "/app/app.py"]
+    user: "1029:100"
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 64
+    mem_limit: 192m
+    volumes:
+      - /volume2/docker/explorer-mcp:/app:ro
+    environment:
+      MCP_URL: https://lex.xlap.pl/mcp
+      APP_ORIGIN: https://explorer.xlap.pl
+      PORT: "8080"
+      PYTHONUNBUFFERED: "1"
+      CF_ACCESS_CLIENT_ID: ${CF_ACCESS_CLIENT_ID}
+      CF_ACCESS_CLIENT_SECRET: ${CF_ACCESS_CLIENT_SECRET}
+    networks: [cf_explorer]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz',timeout=3).read()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+networks:
+  cf_explorer:
+    name: cf_explorer
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.12.0/28
