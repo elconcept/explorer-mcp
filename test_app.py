@@ -9,7 +9,9 @@ import app
 # A fresh public checkout has no private Cloudflare registry.
 if not app.PORTAL_SNAPSHOT.get("servers"):
     from pathlib import Path
-    app.PORTAL_SNAPSHOT = json.loads((Path(__file__).parent / "tests" / "registry_unit_fixture.json").read_text(encoding="utf-8"))
+    app.PORTAL_SNAPSHOT = json.loads(
+        (Path(__file__).parent / "tests" / "registry_unit_fixture.json").read_text(encoding="utf-8")
+    )
 
 
 class ExplorerTests(unittest.TestCase):
@@ -118,9 +120,7 @@ class ExplorerTests(unittest.TestCase):
         m.catalog_at = app.time.monotonic()
         catalog = m.get_catalog()
         self.assertGreaterEqual(len(catalog["servers"]), 15)
-        self.assertEqual(
-            {p["name"] for p in catalog["portals"]}, {"lex-prawo", "ai-admin-tools"}
-        )
+        self.assertEqual({p["name"] for p in catalog["portals"]}, {"lex-prawo", "ai-admin-tools"})
         self.assertNotIn("uodo", {s["id"] for s in catalog["servers"]})
         self.assertIn("mcp-uodo", {s["id"] for s in catalog["servers"]})
         krs = next(s for s in catalog["servers"] if s["id"] == "krs")
