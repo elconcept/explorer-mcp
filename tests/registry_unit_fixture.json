@@ -124,6 +124,16 @@
             "type": "object",
             "properties": {}
           }
+        },
+        {
+          "name": "get_article",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {
+            "readOnlyHint": true
+          }
         }
       ],
       "portals": [
@@ -176,6 +186,9 @@
           "inputSchema": {
             "type": "object",
             "properties": {}
+          },
+          "annotations": {
+            "readOnlyHint": true
           }
         }
       ],
